@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>formularz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    <meta charset="UTF-8">
+</head>
+<body>
+
+<div class="container">
+<form th:action="@{/formularz}" method="post" th:object="${user}">
+
+    Imie        <input type="text" th:field="*{firstName}"><br>
+    <p th:errors="${user.firstName}" style="color:red"></p>
+
+    Nazwisko    <input type="text" th:field="*{lastName}"><br>
+    <p th:errors="${user.lastName}" style="color:red"></p>
+
+    E-mail      <input type="text" th:field="*{mail}"><br>
+    <p th:errors="${user.mail}" style="color:red"></p>
+
+    Telefon     <input type="text" th:field="*{phone}"><br>
+    <p th:errors="${user.phone}" style="color:red"></p>
+
+    <select name="" th:field="*{course}">
+        <option value="java">JAVA</option>
+        <option value="frontend">frontend</option>
+        <option value="phyton">Phyton</option>
+    </select><br>
+
+    <select name="" th:field="*{mode}">
+        <option value="dzienny">dzienny</option>
+        <option value="weekend">weekend</option>
+        <option value="wieczorowy">wieczorowy</option>
+    </select><br>
+
+    Nazwa uzytkownika     <input type="text" th:field="*{username}"><br>
+    <p th:errors="${user.username}" style="color:red"></p>
+
+    haslo     <input type="text" th:field="*{password}"><br>
+    <p th:errors="${user.password}" style="color:red"></p>
+
+    <input type="submit" value="Zapisz" />
+</form>
+</div>
+</body>
+</html>
